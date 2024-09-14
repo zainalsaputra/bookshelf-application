@@ -1,4 +1,4 @@
-let currentEditBookId = null; // Define this variable at the top
+let currentEditBookId = null;
 
 document.addEventListener("DOMContentLoaded", function () {
   const submitForm = document.getElementById("inputBook");
@@ -11,7 +11,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  document.getElementById("searchBook").addEventListener("input", filterBooks);
+  const searchForm = document.getElementById("searchBookForm");
+  searchForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    filterBooks();
+  });
 
   if (isStorageExist()) {
     loadDataFromStorage();
@@ -277,7 +281,9 @@ document.addEventListener(RENDER_EVENT, function () {
 });
 
 function filterBooks() {
-  const searchQuery = document.getElementById("searchBook").value.toLowerCase();
+  const searchQuery = document
+    .getElementById("searchBookInput")
+    .value.toLowerCase();
   const uncompletedBOOKList = document.getElementById(
     "incompleteBookshelfList",
   );
