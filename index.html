@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookshelf App</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Bookshelf Application</h1>
+      </header>
+      <main>
+        <form id="inputBook" data-testid="bookForm">
+          <div class="form-group">
+            <label for="inputBookTitle">Judul Buku</label>
+            <input
+              type="text"
+              id="inputBookTitle" data-testid="bookFormTitleInput"
+              placeholder="Masukkan judul"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="inputBookAuthor">Penulis</label>
+            <input
+              type="text"
+              id="inputBookAuthor" data-testid="bookFormAuthorInput"
+              placeholder="Masukkan penulis"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="inputBookYear">Tahun Terbit</label>
+            <input
+              type="number"
+              id="inputBookYear" data-testid="bookFormYearInput"
+              placeholder="Masukkan tahun"
+              required
+            />
+          </div>
+          <div class="form-group checkbox-group">
+            <input type="checkbox" id="inputBookIsComplete" data-testid="bookFormIsCompleteCheckbox" />
+            <label for="inputBookIsComplete">Selesai Dibaca</label>
+          </div>
+          <button type="submit" id="submitButton" data-testid="bookFormSubmitButton">Tambah Buku</button>
+        </form >
+        
+        <div class="search-container" data-testid="searchBookForm">
+          <input
+            type="text"
+            id="searchBook" data-testid="searchBookFormTitleInput"
+            placeholder="Cari buku berdasarkan judul..."
+          />
+        </div>
+        <section id="incompleteBookshelf" class="bookshelf" data-testid="incompleteBookList">
+          <h2>Belum Selesai</h2>
+          <ul id="incompleteBookshelfList" class="book-list"></ul>
+        </section>
+        <section id="completeBookshelf" class="bookshelf" data-testid="completeBookList>
+          <h2>Selesai</h2>
+          <ul id="completeBookshelfList" class="book-list"></ul>
+        </section>
+        <div id="noResultsMessage" class="no-results" style="display: none">
+          Buku tidak ditemukan
+        </div>
+      </main>
+      <footer>
+        <p>&copy; 2024 Bookshelf Application. All rights reserved.</p>
+      </footer>
+      <script src="script.js"></script>
+    </div>
+  </body>
+</html>
